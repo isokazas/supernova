@@ -24,7 +24,6 @@ static const uint8_t glyphs[36][7] = {
 void gfx_init(void) { gfx_clear(COLOR_BLACK); gfx_present(); }
 
 void gfx_present(void) {
-    /* Wait briefly for vertical retrace if available, but never hang if absent. */
     unsigned int timeout = 100000;
     while (timeout-- && (port_byte_in(0x3DA) & 0x08)) { }
     timeout = 100000;
@@ -88,7 +87,6 @@ static uint8_t punctuation(char c, int row) {
         case '*': return row == 2 ? 10 : (row == 3 ? 4 : (row == 4 ? 10 : 0));
         case '!': return row < 5 ? 4 : (row == 6 ? 4 : 0);
         case '?': return row == 0 ? 14 : (row == 1 ? 17 : (row == 2 ? 2 : (row == 3 ? 4 : (row == 6 ? 4 : 0))));
-        case '>': return row == 3 ? 16 : (row == 2 || row == 4 ? 8 : 0);
         case '|': return 4;
         case '#': return row == 2 || row == 4 ? 31 : 10;
         case '(': return row == 0 || row == 6 ? 2 : 4;
