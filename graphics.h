@@ -28,8 +28,8 @@ void gfx_init(void);
 void gfx_clear(uint8_t color);
 void gfx_put_pixel(int x, int y, uint8_t color);
 void gfx_fill_rect(int x, int y, int w, int h, uint8_t color);
-void gfx_draw_rect(int x, int y, int w, int h, uint8_t border_color, uint8_t fill_color);
+void gfx_draw_rect(int x, int y, int w, int h, uint8_t border, uint8_t fill);
 void gfx_draw_char(int x, int y, char c, uint8_t fg, uint8_t bg);
-void gfx_draw_string(int x, int y, const char *s, uint8_t fg, uint8_t bg);
+void gfx_draw_string(int x, int y, const char *text, uint8_t fg, uint8_t bg);
 
 #endif
