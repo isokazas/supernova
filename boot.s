@@ -29,6 +29,9 @@ KERNEL_OFFSET equ 0x10000
 %include "gdt.s"
 %include "32bit_switch.s"
 
+; 32bit_switch.s leaves NASM in [bits 32]. This routine runs before
+; protected mode, so explicitly assemble it as 16-bit real-mode code.
+[bits 16]
 set_vga_13h:
     mov ax, 0x0013
     int 0x10
