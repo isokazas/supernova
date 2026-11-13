@@ -17,6 +17,9 @@ KERNEL_OFFSET equ 0x10000
     mov si, MSG_BOOTING
     call print_string
 
+    ; Start with a simple VGA graphics mode: 320x200 8-bit indexed color.
+    call set_vga_13h
+
     call load_kernel
     call switch_to_pm
     jmp $
@@ -25,6 +28,11 @@ KERNEL_OFFSET equ 0x10000
 %include "disk_load.s"
 %include "gdt.s"
 %include "32bit_switch.s"
+
+set_vga_13h:
+    mov ax, 0x0013
+    int 0x10
+    ret
 
 [bits 32]
 BEGIN_PM:

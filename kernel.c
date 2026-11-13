@@ -1,11 +1,9 @@
-#include <stdint.h>
-
-extern void terminal_init(void);
-extern void terminal_run(void);
+#include "graphics.h"
+#include "desktop.h"
 
 void kernel_main(void) {
-    terminal_init();
-    terminal_run();
+    gfx_init();
+    desktop_demo();
 
     for (;;) {
         __asm__ volatile ("hlt");
