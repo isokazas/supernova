@@ -6,6 +6,7 @@
 #define GFX_WIDTH 320
 #define GFX_HEIGHT 200
 #define VGA_GRAPHICS_BASE 0xA0000
+#define GFX_FRAME_BYTES (GFX_WIDTH * GFX_HEIGHT)
 
 #define COLOR_BLACK 0x00
 #define COLOR_BLUE 0x01
@@ -25,6 +26,7 @@
 #define COLOR_WHITE 0x0F
 
 void gfx_init(void);
+void gfx_present(void);
 void gfx_clear(uint8_t color);
 void gfx_put_pixel(int x, int y, uint8_t color);
 void gfx_fill_rect(int x, int y, int w, int h, uint8_t color);

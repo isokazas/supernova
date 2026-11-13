@@ -19,10 +19,10 @@ entry.o: entry.s
 kernel.o: kernel.c desktop.h graphics.h
 	gcc -m32 -ffreestanding -fno-stack-protector -fno-pie -fno-builtin -c kernel.c -o kernel.o
 
-graphics.o: graphics.c graphics.h
+graphics.o: graphics.c graphics.h ports.h
 	gcc -m32 -ffreestanding -fno-stack-protector -fno-pie -fno-builtin -c graphics.c -o graphics.o
 
-desktop.o: desktop.c desktop.h graphics.h input.h
+desktop.o: desktop.c desktop.h graphics.h input.h ports.h
 	gcc -m32 -ffreestanding -fno-stack-protector -fno-pie -fno-builtin -c desktop.c -o desktop.o
 
 input.o: input.c input.h ports.h
